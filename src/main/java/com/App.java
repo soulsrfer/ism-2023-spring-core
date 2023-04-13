@@ -25,5 +25,6 @@ public class App {
 		System.out.println(userController1.getSalary());
 		System.out.println(userController1.getName());
 
+		container.registerShutdownHook();
 	}
 }

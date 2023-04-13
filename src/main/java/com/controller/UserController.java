@@ -1,8 +1,28 @@
 package com.controller;
 
-public class UserController {
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
+public class UserController implements InitializingBean,DisposableBean{
 	private String name;
 	private Integer salary;
+	
+	
+	public UserController() {
+		System.out.println("UserController()"); 
+	}
+
+	public void init() {
+		System.out.println("init()");
+	}
+	
+	public void destroy() {
+		System.out.println("destroy()");
+	}
+
+	public void destroyME() {
+		System.out.println("destroyME()");
+	}
 
 	public String getName() {
 		return name;
@@ -20,4 +40,8 @@ public class UserController {
 		this.salary = salary;
 	}
 
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet()"); 
+		
+	}
 }
